@@ -1,0 +1,80 @@
+:host {
+  width: 100%;
+}
+
+
+// #navigation-header {
+//   @import "../../../themes/generated/variables.additional.scss";
+//   background-color: var(--gray-900);
+//   // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+//   ::ng-deep .menu-button .dx-icon {
+//     color: $base-text-color;
+//   }
+
+//   :host-context(.screen-x-small) & {
+//     padding-left: 20px;
+//   }
+
+//   :host-context(.dx-theme-generic) & {
+//     padding-top: 10px;
+//     padding-bottom: 10px;
+//   }
+// }
+
+.navigation-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding-top: 16px;
+  padding-bottom: 32px;
+  padding-left: 24px;
+  padding-right: 24px;
+  animation: fadeIn 1200ms;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.navigation-header-compact {
+  display: flex;
+  flex-direction: row;
+  padding-top: 16px;
+  padding-bottom: 32px;
+  justify-content: start;
+  align-items: start;
+  padding-left: 15px;
+  animation: fadeIn 1200ms;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.close-button{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gray-800);
+  width: 42px;
+  height: 36px;
+  border-radius: 8px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #13b7da;
+  cursor: pointer;
+}

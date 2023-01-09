@@ -1,0 +1,102 @@
+<!-- <div [class]="compactMode? 'closed-menu': 'opened-menu'">
+  <ng-content></ng-content>
+ <dx-scroll-view style="width: 100%; height: 100%;">
+  <div class="menu-container">
+      <div class="menu-list">
+        <ul class="item">
+          <span class="material-symbols-outlined">
+            home
+          </span>
+          <span class="text">
+            Home
+          </span>
+        </ul>
+        <ul class="item">
+          <span class="material-symbols-outlined">
+            monetization_on
+          </span>
+          <span class="text">
+            Opportunites
+          </span>
+        </ul>
+        <ul class="item">
+          <span class="material-symbols-outlined">
+            event
+          </span>
+          <span class="text">
+            Appoiment
+          </span>
+        </ul>
+        <ul class="item">
+          <span class="material-symbols-outlined">
+            perm_contact_calendar
+          </span>
+          <span class="text">
+            Attendance
+          </span>
+        </ul>
+      </div>
+    </div>
+  </dx-scroll-view>
+</div> -->
+
+
+<ng-content></ng-content>
+
+<div [class]="_compactMode? 'menu-container-compact': ' menu-container'">
+  <dx-tree-view [items]="items" keyExpr="path" selectionMode="single" [focusStateEnabled]="false" expandEvent="click"
+    (onItemClick)="onItemClick($event)" width="100%">
+    <dxi-item class="trying" *ngIf="!_compactMode">
+      <span class="material-symbols-outlined">
+        home
+      </span>
+      <span class="text">
+        Home
+      </span>
+    </dxi-item>
+    <dxi-item class="trying-compact" *ngIf="_compactMode">
+      <span class="material-symbols-outlined">
+        home
+      </span>
+    </dxi-item>
+    <dxi-item class="trying" *ngIf="!_compactMode">
+      <span class="material-symbols-outlined">
+        monetization_on
+      </span>
+      <span class="text">
+        Opportunites
+      </span>
+    </dxi-item>
+    <dxi-item class="trying-compact" *ngIf="_compactMode">
+      <span class="material-symbols-outlined">
+        monetization_on
+      </span>
+    </dxi-item>
+    <dxi-item class="trying" *ngIf="!_compactMode">
+      <span class="material-symbols-outlined">
+        event
+      </span>
+      <span class="text">
+        Appoiment
+      </span>
+    </dxi-item>
+    <dxi-item class="trying-compact" *ngIf="_compactMode">
+      <span class="material-symbols-outlined">
+        event
+      </span>
+    </dxi-item>
+    <dxi-item class="trying" *ngIf="!_compactMode">
+      <span class="material-symbols-outlined">
+        perm_contact_calendar
+      </span>
+      <span class="text">
+        Attendance
+      </span>
+    </dxi-item>
+    <dxi-item class="trying-compact" *ngIf="_compactMode">
+      <span class="material-symbols-outlined">
+        perm_contact_calendar
+      </span>
+    </dxi-item>
+  </dx-tree-view>
+</div>

@@ -1,0 +1,390 @@
+@import "../../../../dx-styles.scss";
+@import "../../../../themes/generated/variables.additional.scss";
+
+
+// :host {
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100%;
+//   height: 100%;
+//   width: 250px !important;
+//   ::ng-deep .sidebar {
+//     width: 100% !important;
+//     min-height: 100%;
+//     background-color: var(--gray-900);
+//     padding-left: 24px;
+//     padding-right: 24px;
+//     padding-top: 32px;
+
+//     div.dx-scrollable-content {
+//       ul.dx-treeview-node-container.dx-treeview-node-container-opened {
+//         li.dx-treeview-node.dx-treeview-item-without-checkbox.dx-treeview-node-is-leaf {
+//           margin-bottom: 24px;
+//           height: 42px;
+//           padding-left: 0px;
+//           border-radius: 8px;
+//           background-color: var(--gray-800);
+
+//           div.dx-item.dx-treeview-item {
+//             display: flex;
+//             padding: 0px 32px;
+//             border-radius: 8px;
+//             flex-direction: row;
+//             min-height: 42px !important;
+//             gap: 24px;
+//             align-items: center;
+
+//             div.dx-item-content.dx-treeview-item-content {
+//               display: flex;
+//               gap: 24px;
+
+//               span {
+//                 display: flex;
+//                 align-items: center;
+//                 font-size: 16px;
+//                 font-weight: 800;
+//               }
+//             }
+//           }
+//         }
+//       }
+
+//       li.dx-treeview-node.dx-treeview-item-without-checkbox.dx-treeview-node-is-leaf.dx-state-selected {
+//         margin-bottom: 24px;
+//         height: 42px;
+//         padding-left: 0px;
+//         border-radius: 8px;
+
+//         div.dx-item.dx-treeview-item {
+//           display: flex;
+//           padding: 0px 32px;
+//           flex-direction: row;
+//           border-radius: 8px;
+//           min-height: 42px !important;
+//           gap: 24px;
+//           background-image: linear-gradient(#10ACE8, #1CD2BE);
+//           align-items: center;
+
+//           div.dx-item-content.dx-treeview-item-content {
+//             display: flex;
+//             gap: 24px;
+
+//             span {
+//               display: flex;
+//               align-items: center;
+//               font-size: 16px;
+//               font-weight: 800;
+//             }
+//           }
+//         }
+//       }
+
+//       li.dx-treeview-node.dx-treeview-item-without-checkbox {
+//         ul.dx-treeview-node-container.dx-treeview-node-container-opened {
+//           li.dx-treeview-node.dx-treeview-item-without-checkbox.dx-treeview-node-is-leaf {
+//             margin-bottom: 0px;
+//             height: 30px;
+//             border-radius: 0px;
+//             background-color: transparent;
+//           }
+
+//           li.dx-treeview-node.dx-treeview-item-without-checkbox.dx-treeview-node-is-leaf.dx-state-selected {
+//             margin-bottom: 0px;
+//             height: 30px;
+//             border-radius: 0px;
+//             background-color: transparent;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  height: 100%;
+  width: 280px !important;
+  background-color: var(--gray-900) !important;
+
+  .menu-container {
+    min-height: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+
+    ::ng-deep .dx-treeview {
+      .dx-treeview-node {
+        padding-left: 0px !important;
+      }
+
+      .dx-item.dx-treeview-item {
+        padding-right: 24px;
+        padding-left: 24px;
+      }
+
+      .dx-item.dx-treeview-item.dx-state-hover {
+        background-color: var(--gray-900);
+      }
+    }
+  }
+
+  .menu-container-compact {
+    min-height: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+
+    ::ng-deep .dx-treeview {
+      .dx-treeview-node {
+        padding-left: 0px !important;
+      }
+
+      .dx-item.dx-treeview-item {
+        padding-right: 0px;
+        padding-left: 15px;
+      }
+
+      .dx-item.dx-treeview-item.dx-state-hover {
+        background-color: var(--gray-900);
+      }
+    }
+  }
+
+  // .menu-list {
+  //   width: 280px;
+  //   height: 100%;
+  //   background-color: var(--gray-900);
+  //   padding-bottom: 32px;
+  //   padding-right: 24px;
+  //   padding-left: 24px;
+  //   display: flex;
+  //   flex-direction: column;
+  //   gap: 24px;
+
+  //   .item {
+  //     display: flex;
+  //     flex-direction: row;
+  //     align-items: center;
+  //     padding-left: 0px;
+  //     justify-content: start;
+  //     width: 100%;
+  //     height: 36px;
+  //     border-radius: 8px;
+  //     background-color: var(--gray-800);
+  //     font-family: 'Exo', sans-serif;
+  //     font-weight: 600;
+  //     font-size: 14px;
+  //     color: #13b7da;
+  //     gap: 16px;
+  //     padding-right: 32px;
+  //     padding-left: 32px;
+  //     margin-top: 0px;
+  //     margin-bottom: 0px;
+
+  //     .material-symbols-outlined {
+  //       font-size: 20px;
+  //     }
+
+  //     .text {
+  //       color: #13b7da;
+
+  //       font: {
+  //         size: 14px;
+  //         font-family: 'Exo', sans-serif;
+  //         font-weight: 600;
+  //       }
+
+  //       ;
+  //       padding-top: 2px;
+  //     }
+  //   }
+
+}
+
+
+.trying {
+  display: flex;
+  height: 42px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: var(--gray-800);
+  font-family: 'Exo', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #13b7da;
+  gap: 16px;
+  padding-right: 32px;
+  padding-left: 32px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  align-items: center;
+  justify-content: start;
+  animation: fadeIn 1200ms;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .material-symbols-outlined {
+    font-size: 20px;
+  }
+
+  .text {
+    color: #13b7da;
+
+    font: {
+      size: 14px;
+      font-family: 'Exo', sans-serif;
+      font-weight: 600;
+    }
+
+    ;
+    padding-top: 2px;
+  }
+}
+
+.trying:hover {
+  background-color: #45484E;
+}
+
+.trying-compact {
+  display: flex;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  border-radius: 8px;
+  background-color: var(--gray-800);
+  color: #13b7da;
+  animation: fadeIn 1200ms;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .material-symbols-outlined {
+    font-size: 20px;
+  }
+
+  .text {
+    color: #13b7da;
+
+    font: {
+      size: 14px;
+      font-family: 'Exo', sans-serif;
+      font-weight: 600;
+    }
+
+    ;
+    padding-top: 2px;
+  }
+}
+
+
+
+
+
+// :host {
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100%;
+//   height: 100%;
+//   width: 250px !important;
+
+//   .menu-container {
+//     min-height: 100%;
+//     display: flex;
+//     flex: 1;
+
+//     ::ng-deep .dx-treeview {
+//       // ## Long text positioning
+//       white-space: nowrap;
+//       // ##
+
+//       // ## Icon width customization
+//       .dx-treeview-item {
+//         padding-left: 0;
+//         padding-right: 0;
+
+//         .dx-icon {
+//           width: $side-panel-min-width !important;
+//           margin: 0 !important;
+//         }
+//       }
+//       // ##
+
+//       // ## Arrow customization
+//       .dx-treeview-node {
+//         padding: 0 0 !important;
+//       }
+
+//       .dx-treeview-toggle-item-visibility {
+//         right: 10px;
+//         left: auto;
+//       }
+
+//       .dx-rtl .dx-treeview-toggle-item-visibility {
+//         left: 10px;
+//         right: auto;
+//       }
+//       // ##
+
+//       // ## Item levels customization
+//       .dx-treeview-node {
+//         &[aria-level='1'] {
+//           font-weight: bold;
+//           border-bottom: 1px solid $base-border-color;
+//         }
+
+//         &[aria-level='2'] .dx-treeview-item-content {
+//           font-weight: normal;
+//           padding: 0 $side-panel-min-width;
+//         }
+//       }
+//       // ##
+//     }
+
+//     // ## Selected & Focuced items customization
+//     ::ng-deep .dx-treeview {
+//       .dx-treeview-node-container {
+//         .dx-treeview-node {
+//           &.dx-state-selected:not(.dx-state-focused)> .dx-treeview-item {
+//             background: transparent;
+//           }
+
+//           &.dx-state-selected > .dx-treeview-item * {
+//             color: $base-accent;
+//           }
+
+//           &:not(.dx-state-focused)>.dx-treeview-item.dx-state-hover {
+//             background-color: lighten($base-bg, 4.00);
+//           }
+//         }
+//       }
+//     }
+
+//     :host-context(.dx-theme-generic) ::ng-deep.dx-treeview {
+//       .dx-treeview-node-container .dx-treeview-node.dx-state-selected.dx-state-focused > .dx-treeview-item * {
+//         color: inherit;
+//       }
+//     }
+//     // ##
+//   }
+// }
