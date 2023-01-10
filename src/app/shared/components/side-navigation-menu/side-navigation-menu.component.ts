@@ -19,6 +19,7 @@ import { navigation } from '../../../app-navigation';
 import * as events from 'devextreme/events';
 import { DxScrollViewModule } from 'devextreme-angular';
 import { CommonModule } from '@angular/common';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-navigation-menu',
@@ -80,7 +81,7 @@ export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef, private router: Router) {}
 
   onItemClick(event: ItemClickEvent) {
     this.selectedItemChanged.emit(event);
@@ -94,6 +95,14 @@ export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     events.off(this.elementRef.nativeElement, 'dxclick');
+  }
+
+  actionRouteOpportunities(){
+    this.router.navigate(['/opportunities'])
+  }
+
+  actionRouteHome(){
+    this.router.navigate(['/home'])
   }
 }
 

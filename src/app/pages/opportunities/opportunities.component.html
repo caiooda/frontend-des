@@ -1,0 +1,147 @@
+<div style="
+ background-color: white;
+ overflow: hidden;
+ margin: 10px;
+ border-radius: 10px;
+ height: calc(100vh - 20px - 20px - 60px);
+ max-height: calc(100vh - 20px - 20px - 60px);
+ width: 98%;">
+  <div
+    style="background-color: #363640; height: 70px; width: 100%; margin-bottom:10px; display: flex; flex-direction: row; padding:10px; gap: 60px; align-items: center; ">
+    <div style="display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: center;"
+      (click)="getAlert()">
+      <div class="box red">
+        <span class="box-icon">A</span>
+      </div>
+      <div class="box-info">
+        <span class="box-icon-small-text">Alert</span>
+        <span class="box-icon-small-number">{{alert}}</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: center;">
+      <div class="box violet" (click)="getUpgrade()">
+        <span class="box-icon">U</span>
+      </div>
+      <div class="box-info">
+        <span class="box-icon-small-text">Upgrade</span>
+        <span class="box-icon-small-number">{{upgrade}}</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: center;">
+      <div class="box yellow" (click)="getService()">
+        <span class="box-icon">S</span>
+      </div>
+      <div class="box-info">
+        <span class="box-icon-small-text">Service</span>
+        <span class="box-icon-small-number">{{service}}</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: center;">
+      <div class="box orange" (click)="getPending()">
+        <span class="box-icon">P</span>
+      </div>
+      <div class="box-info">
+        <span class="box-icon-small-text">Pending</span>
+        <span class="box-icon-small-number">{{pending}}</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: center;">
+      <div class="box green" (click)="getDelayedService()">
+        <span class="box-icon">DS</span>
+      </div>
+      <div class="box-info">
+        <span class="box-icon-small-text">Delayed Service</span>
+        <span class="box-icon-small-number">{{delayedService}}</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: center;">
+      <div class="box blue" (click)="getNoWarranty()">
+        <span class="box-icon">NW</span>
+      </div>
+      <div class="box-info">
+        <span class="box-icon-small-text">No Warranty</span>
+        <span class="box-icon-small-number">{{noWarranty}}</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: center;">
+      <div class="box black" (click)="getOrphan()">
+        <span class="box-icon">O</span>
+      </div>
+      <div class="box-info">
+        <span class="box-icon-small-text">Orphan</span>
+        <span class="box-icon-small-number">{{orphan}}</span>
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: end; padding: 10px;">
+    <dx-button text="Refresh" type="success" (onClick)="refresh()">
+      <div style="display: flex; align-items: center; justify-content: center; gap:5px;">
+        <span class="material-symbols-outlined">
+          refresh
+        </span>
+        <span style="font-weight: 500;">
+          Refresh
+        </span>
+      </div>
+    </dx-button>
+  </div>
+  <div style="padding: 10px; width: 100%; height: 100%;">
+    <dx-data-grid class="dx-grid" [dataSource]="costumers" noDataText="Nenhum item encontrado." width="100%"
+      height="80%" [showBorders]="true" [rowAlternationEnabled]="true" [columnAutoWidth]="true" *ngIf="!loading">
+      <dxi-column dataField="Chassi" caption="Chassi" alignment="center"></dxi-column>
+      <dxi-column dataField="Name" caption="Client Name" alignment="center"></dxi-column>
+      <dxi-column dataField="Plate" caption="Plate" alignment="center"></dxi-column>
+      <dxi-column dataField="Model" caption="Model" alignment="center"></dxi-column>
+      <dxi-column dataField="Opportunites" caption="Opportunites" alignment="center"
+        cellTemplate="opportunitiesTemplate"></dxi-column>
+      <div *dxTemplate="let d of 'opportunitiesTemplate'">
+        <div style="display: flex; flex-direction: row; gap: 5px;">
+          <div class="grid red" *ngIf="d.data.Alert">
+            <span class="grid-font">A</span>
+          </div>
+          <div class="grid violet" *ngIf="d.data.Upgrade">
+            <span class="grid-font">U</span>
+          </div>
+          <div class="grid yellow" *ngIf="d.data.Service">
+            <span class="grid-font">S</span>
+          </div>
+          <div class="grid orange" *ngIf="d.data.Pending">
+            <span class="grid-font">P</span>
+          </div>
+          <div class="grid green" *ngIf="d.data.DelayedService">
+            <span class="grid-font">DS</span>
+          </div>
+          <div class="grid blue" *ngIf="d.data.NoWarranty">
+            <span class="grid-font">NW</span>
+          </div>
+          <div class="grid black" *ngIf="d.data.Orphan">
+            <span class="grid-font">O</span>
+          </div>
+        </div>
+      </div>
+      <dxi-column dataField="Year_Fab" caption="Manufacture Year" alignment="center"></dxi-column>
+      <dxi-column dataField="Year_Mod" caption="Model" alignment="center"></dxi-column>
+      <dxi-column dataField="Color" caption="Color" alignment="center"></dxi-column>
+      <dxi-column dataField="KM" caption="KM" alignment="center"></dxi-column>
+      <dxi-column dataField="KM_Dt" caption="KM Date" alignment="center" dataType="date"></dxi-column>
+      <dxi-column dataField="Dt_Sales" caption="Sales Date" alignment="center" dataType="date"></dxi-column>
+      <dxi-column dataField="Dt_Warranty_Start" caption="Warranty Start Date" alignment="center" dataType="date">
+      </dxi-column>
+      <dxi-column dataField="Dt_Warranty_End" caption="Warranty End Date" alignment="center" dataType="date">
+      </dxi-column>
+      <dxi-column dataField="Value_Purchase" caption="Vl. Purchase" alignment="center" dataType="number"
+        [format]="{ type: 'fixedPoint', precision: 2 }"></dxi-column>
+      <dxi-column dataField="Brand" caption="Brand" alignment="center"></dxi-column>
+      <dxi-column dataField="Family" caption="Family" alignment="center"></dxi-column>
+      <dxi-column dataField="Cpf_Cnpj" caption="CPF/CNPJ" alignment="center"></dxi-column>
+      <dxi-column dataField="Id_Category" caption="Category" alignment="center"></dxi-column>
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+      <dxo-header-filter [visible]="true"></dxo-header-filter>
+    </dx-data-grid>
+    <span style="width: 100%;height: 100%; display: flex; align-items: center; justify-content: center;"
+      *ngIf="loading">
+      <span style="font-size:14px; font-weight: 600;">Carregando...</span>
+    </span>
+  </div>
+
+</div>

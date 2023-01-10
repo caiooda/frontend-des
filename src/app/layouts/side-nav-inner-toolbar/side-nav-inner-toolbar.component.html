@@ -1,20 +1,5 @@
 <dx-drawer class="drawer" position="before" [closeOnOutsideClick]="shaderEnabled" [openedStateMode]="menuMode"
   [revealMode]="menuRevealMode" [minSize]="minMenuSize" [shading]="shaderEnabled" [(opened)]="menuOpened">
-
-  <!-- <app-side-navigation-menu [compactMode]="!menuOpened" [selectedItem]="selectedRoute"
-    *dxTemplate="let dataMenu of 'panel'" (selectedItemChanged)="navigationChanged($event)"
-    (openMenu)="navigationClick()" class="navigation-menu">
-    <div class="navigation-header">
-      <img src = "./../../../assets/images/logo.svg" alt="Logo" width="100%" height="36px"/>
-      <div class="close-button">
-        <span class="material-symbols-outlined">
-          close
-          </span>
-      </div>
-    </div>
-  </app-side-navigation-menu> -->
-
-
   <app-side-navigation-menu [compactMode]="!menuOpened" [selectedItem]="selectedRoute" class="dx-swatch-additional"
     *dxTemplate="let dataMenu of 'panel'" (selectedItemChanged)="navigationChanged($event)"
     (openMenu)="navigationClick()">

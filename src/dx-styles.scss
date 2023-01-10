@@ -72,4 +72,45 @@ html, body {
   }
 }
 
+
+
+.dx-grid {
+  margin-left: 0;
+  margin-right: 0;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+
+  tr.dx-row.dx-data-row.text-green.dx-state-hover {
+    td.dx-cell {
+      color: #5cb85c !important;
+      font-weight: bold !important;
+    }
+  }
+
+  tr.dx-row.dx-data-row.text-red.dx-state-hover {
+    td.dx-cell {
+      color: red !important;
+      font-weight: bold !important;
+    }
+  }
+
+  tr.dx-row.dx-data-row.text-blue.dx-state-hover {
+    td.dx-cell {
+      color: blue !important;
+      font-weight: bold !important;
+    }
+  }
+}
+
+.dx-grid .dx-row {
+  height: 40px
+}
+
+.dx-grid .dx-datagrid-headers {
+  border: 0px
+}
+
+
 $side-panel-min-width: 72px;

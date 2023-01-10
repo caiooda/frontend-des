@@ -59,7 +59,6 @@ export class SideNavInnerToolbarComponent implements OnInit {
   toggleMenu(event: any) {
     this.menuOpened = !this.menuOpened;
     event.stopPropagation();
-    console.log("AAA", this.menuOpened)
   }
 
   get hideMenuAfterNavigation() {
@@ -71,7 +70,6 @@ export class SideNavInnerToolbarComponent implements OnInit {
   }
 
   navigationChanged(event: TreeViewItemClickEvent) {
-    console.log(event)
     const path = (event.itemData as any).path;
     const pointerEvent = event.event;
 
